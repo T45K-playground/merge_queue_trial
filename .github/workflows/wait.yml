@@ -1,0 +1,17 @@
+name: Wait
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+  merge_group:
+    types: [checks_requested]
+
+jobs:
+  wait_job:
+    runs-on: ubuntu-slim
+    steps:
+      - name: Wait
+        uses: actions/github-script@v7
+        with:
+          script: |
+            sleep 10
